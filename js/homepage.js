@@ -35,7 +35,7 @@ var MasterForm = function (_React$Component) {
         body: body,
         redirect: 'follow'
       }).then(function (res) {
-        return res.redirect(301, res.url);
+        return window.location.replace(res.url);
       });
     };
 

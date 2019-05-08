@@ -24,7 +24,7 @@ class MasterForm extends React.Component {
        method: 'POST',
        body: body,
        redirect: 'follow'
-     }).then(res => res.redirect(301, res.url));
+     }).then(res => window.location.replace(res.url));
   }
 
   _next = () => {
