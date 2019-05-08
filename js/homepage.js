@@ -25,9 +25,8 @@ var MasterForm = function (_React$Component) {
     };
 
     _this.handleSubmit = function (event) {
-      event.preventDefault();
+      //    event.preventDefault()
       // const { zip, address, productCode, frequency, yardsize, email, password } = this.state
-
       var body = new FormData();
       for (var key in _this.state) {
         body.append(key, _this.state[key]);
@@ -35,7 +34,7 @@ var MasterForm = function (_React$Component) {
       fetch('http://yardmatters.storeupon.com/store/ordersubmit', {
         method: 'POST',
         body: body
-      });
+      }, redirect);
     };
 
     _this._next = function () {
