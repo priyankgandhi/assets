@@ -15,8 +15,7 @@ class MasterForm extends React.Component {
   }
 
   handleSubmit = event => {
-//    event.preventDefault()
-    // const { zip, address, productCode, frequency, yardsize, email, password } = this.state
+    event.preventDefault()
     const body = new FormData();
     for ( var key in this.state ) {
         body.append(key, this.state[key]);
@@ -24,7 +23,8 @@ class MasterForm extends React.Component {
     fetch('http://yardmatters.storeupon.com/store/ordersubmit', {
        method: 'POST',
        body: body,
-     },redirect: 'follow').then(res => res.redirect(301, res.url));
+       redirect: 'follow'
+     }).then(res => res.redirect());
   }
 
   _next = () => {

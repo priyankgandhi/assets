@@ -25,17 +25,17 @@ var MasterForm = function (_React$Component) {
     };
 
     _this.handleSubmit = function (event) {
-      //    event.preventDefault()
-      // const { zip, address, productCode, frequency, yardsize, email, password } = this.state
+      event.preventDefault();
       var body = new FormData();
       for (var key in _this.state) {
         body.append(key, _this.state[key]);
       }
       fetch('http://yardmatters.storeupon.com/store/ordersubmit', {
         method: 'POST',
-        body: body
-      }, redirect).then(function (res) {
-        return res.redirect(301, res.url);
+        body: body,
+        redirect: 'follow'
+      }).then(function (res) {
+        return res.redirect();
       });
     };
 
