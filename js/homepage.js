@@ -27,11 +27,14 @@ var MasterForm = function (_React$Component) {
     _this.handleSubmit = function (event) {
       event.preventDefault();
       // const { zip, address, productCode, frequency, yardsize, email, password } = this.state
-      var data = _this.state;
-      //alert(JSON.stringify(data));
+
+      var body = new FormData();
+      for (var key in _this.state) {
+        body.append(key, _this.state[key]);
+      }
       fetch('http://yardmatters.storeupon.com/store/ordersubmit', {
         method: 'POST',
-        body: JSON.stringify(data)
+        body: body
       });
     };
 
@@ -52,7 +55,8 @@ var MasterForm = function (_React$Component) {
     };
 
     _this.state = {
-      currentStep: 1
+      currentStep: 1,
+      productCode: 'fac6010d-c261-4705-a722-773b83dbd3f2'
     };
     return _this;
   }
@@ -267,11 +271,6 @@ function Step2(props) {
           { className: 'custom-control-label', htmlFor: 'customRadio2' },
           'Monthly'
         )
-      ),
-      React.createElement(
-        'div',
-        { className: 'hidden' },
-        React.createElement('input', { type: 'hidden', name: 'productCode', value: 'fac6010d-c261-4705-a722-773b83dbd3f2' })
       )
     )
   );

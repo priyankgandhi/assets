@@ -2,7 +2,8 @@ class MasterForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentStep: 1
+      currentStep: 1,
+      productCode:'fac6010d-c261-4705-a722-773b83dbd3f2'
     }
   }
 
@@ -16,11 +17,14 @@ class MasterForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault()
     // const { zip, address, productCode, frequency, yardsize, email, password } = this.state
-    const data = this.state
-    //alert(JSON.stringify(data));
+
+    const body = new FormData();
+    for ( var key in this.state ) {
+        body.append(key, this.state[key]);
+    }
     fetch('http://yardmatters.storeupon.com/store/ordersubmit', {
        method: 'POST',
-       body: JSON.stringify(data),
+       body: body,
      });
   }
 
@@ -167,10 +171,6 @@ function Step2(props) {
         <input type="radio" id="customRadio2" name="custom_frequency" className="custom-control-input form-control" value={props.frequency} onChange={props.handleChange} />
         <label className="custom-control-label" htmlFor="customRadio2">Monthly</label>
       </div>
-      <div className="hidden">
-        <input type="hidden" name="productCode" value="fac6010d-c261-4705-a722-773b83dbd3f2"/>
-      </div>
-
     </div>
     </React.Fragment>
   );
