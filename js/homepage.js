@@ -196,10 +196,10 @@ function Step2(props) {
       { className: 'form-group col-xs-4' },
       React.createElement(
         'label',
-        { htmlFor: 'address' },
+        { htmlFor: 'google-address' },
         'Your address'
       ),
-      React.createElement('input', { className: 'form-control', id: 'address', name: 'address', value: props.address, onChange: props.handleChange })
+      React.createElement('input', { className: 'form-control', id: 'google-address', name: 'address', value: props.address, onChange: props.handleChange })
     ),
     React.createElement(
       'div',

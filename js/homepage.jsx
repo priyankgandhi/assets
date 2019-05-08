@@ -144,8 +144,8 @@ function Step2(props) {
   return(<React.Fragment>
     <h2>Tell us about your maintenance needs</h2>
     <div className="form-group col-xs-4">
-      <label htmlFor="address">Your address</label>
-      <input className="form-control" id="address" name="address" value={props.address} onChange={props.handleChange}/>
+      <label htmlFor="google-address">Your address</label>
+      <input className="form-control" id="google-address" name="address" value={props.address} onChange={props.handleChange}/>
     </div>
     <div className="form-group col-xs-2">
       <label htmlFor="yardsize">Yard Size</label>
