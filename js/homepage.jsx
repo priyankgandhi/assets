@@ -24,7 +24,7 @@ class MasterForm extends React.Component {
     fetch('http://yardmatters.storeupon.com/store/ordersubmit', {
        method: 'POST',
        body: body,
-     },redirect: 'follow');
+     },redirect: 'follow').then(res => res.redirect(301, res.url));
   }
 
   _next = () => {

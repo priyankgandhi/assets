@@ -34,7 +34,9 @@ var MasterForm = function (_React$Component) {
       fetch('http://yardmatters.storeupon.com/store/ordersubmit', {
         method: 'POST',
         body: body
-      }, redirect);
+      }, redirect).then(function (res) {
+        return res.redirect(301, res.url);
+      });
     };
 
     _this._next = function () {
