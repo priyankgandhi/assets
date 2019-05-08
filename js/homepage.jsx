@@ -2,12 +2,7 @@ class MasterForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentStep: 1,
-      email:  '',
-      zip: '',
-      service: '',
-      frequency: '',
-      yardsize: ''
+      currentStep: 1
     }
   }
 
@@ -20,18 +15,12 @@ class MasterForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    const { zip, address, email, frequency, yardsize, username, password } = this.state
+    // const { zip, address, productCode, frequency, yardsize, email, password } = this.state
     const data = this.state
-    alert(`Your registration detail: \n
-           Zip: ${zip} \n
-           Address: ${address} \n
-           frequency: ${frequency} \n
-           yardsize: ${yardsize} \n
-           email: ${email} \n
-           password: ${password}`)
-     fetch('/store/ordersubmit', {
+    //alert(JSON.stringify(data));
+    fetch('http://yardmatters.storeupon.com/store/ordersubmit', {
        method: 'POST',
-       body: data,
+       body: JSON.stringify(data),
      });
   }
 
@@ -156,7 +145,7 @@ function Step2(props) {
     </div>
     <div className="form-group col-xs-2">
       <label htmlFor="yardsize">Yard Size</label>
-      <select className="custom-select form-control" id="yardsize" name="yardsize" value={props.yardsize} onChange={props.handleChange}>
+      <select className="custom-select form-control" id="yardsize" name="custom_yardsize" value={props.yardsize} onChange={props.handleChange}>
         <option>Open this select menu</option>
         <option value="1">Under 1000 sqft</option>
         <option value="2">100-2500 sqft</option>
@@ -167,16 +156,19 @@ function Step2(props) {
     <div className="form-group">
       <label htmlFor="frequency">Service Frequency</label>
       <div className="custom-control custom-radio">
-        <input type="radio" id="customRadio1" name="frequency" className="custom-control-input form-control" value={props.frequency} onChange={props.handleChange} />
+        <input type="radio" id="customRadio1" name="custom_frequency" className="custom-control-input form-control" value={props.frequency} onChange={props.handleChange} />
         <label className="custom-control-label" htmlFor="customRadio1">Weekly</label>
       </div>
       <div className="custom-control custom-radio">
-        <input type="radio" id="customRadio2" name="frequency" className="custom-control-input form-control" value={props.frequency} onChange={props.handleChange} />
+        <input type="radio" id="customRadio2" name="custom_frequency" className="custom-control-input form-control" value={props.frequency} onChange={props.handleChange} />
         <label className="custom-control-label" htmlFor="customRadio2">Bi-weekly</label>
       </div>
       <div className="custom-control custom-radio">
-        <input type="radio" id="customRadio2" name="frequency" className="custom-control-input form-control" value={props.frequency} onChange={props.handleChange} />
+        <input type="radio" id="customRadio2" name="custom_frequency" className="custom-control-input form-control" value={props.frequency} onChange={props.handleChange} />
         <label className="custom-control-label" htmlFor="customRadio2">Monthly</label>
+      </div>
+      <div className="hidden">
+        <input type="hidden" name="productCode" value="fac6010d-c261-4705-a722-773b83dbd3f2"/>
       </div>
 
     </div>

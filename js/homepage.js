@@ -26,20 +26,12 @@ var MasterForm = function (_React$Component) {
 
     _this.handleSubmit = function (event) {
       event.preventDefault();
-      var _this$state = _this.state,
-          zip = _this$state.zip,
-          address = _this$state.address,
-          email = _this$state.email,
-          frequency = _this$state.frequency,
-          yardsize = _this$state.yardsize,
-          username = _this$state.username,
-          password = _this$state.password;
-
+      // const { zip, address, productCode, frequency, yardsize, email, password } = this.state
       var data = _this.state;
-      alert('Your registration detail: \n\n           Zip: ' + zip + ' \n\n           Address: ' + address + ' \n\n           frequency: ' + frequency + ' \n\n           yardsize: ' + yardsize + ' \n\n           email: ' + email + ' \n\n           password: ' + password);
-      fetch('/store/ordersubmit', {
+      //alert(JSON.stringify(data));
+      fetch('http://yardmatters.storeupon.com/store/ordersubmit', {
         method: 'POST',
-        body: data
+        body: JSON.stringify(data)
       });
     };
 
@@ -60,12 +52,7 @@ var MasterForm = function (_React$Component) {
     };
 
     _this.state = {
-      currentStep: 1,
-      email: '',
-      zip: '',
-      service: '',
-      frequency: '',
-      yardsize: ''
+      currentStep: 1
     };
     return _this;
   }
@@ -220,7 +207,7 @@ function Step2(props) {
       ),
       React.createElement(
         'select',
-        { className: 'custom-select form-control', id: 'yardsize', name: 'yardsize', value: props.yardsize, onChange: props.handleChange },
+        { className: 'custom-select form-control', id: 'yardsize', name: 'custom_yardsize', value: props.yardsize, onChange: props.handleChange },
         React.createElement(
           'option',
           null,
@@ -254,7 +241,7 @@ function Step2(props) {
       React.createElement(
         'div',
         { className: 'custom-control custom-radio' },
-        React.createElement('input', { type: 'radio', id: 'customRadio1', name: 'frequency', className: 'custom-control-input form-control', value: props.frequency, onChange: props.handleChange }),
+        React.createElement('input', { type: 'radio', id: 'customRadio1', name: 'custom_frequency', className: 'custom-control-input form-control', value: props.frequency, onChange: props.handleChange }),
         React.createElement(
           'label',
           { className: 'custom-control-label', htmlFor: 'customRadio1' },
@@ -264,7 +251,7 @@ function Step2(props) {
       React.createElement(
         'div',
         { className: 'custom-control custom-radio' },
-        React.createElement('input', { type: 'radio', id: 'customRadio2', name: 'frequency', className: 'custom-control-input form-control', value: props.frequency, onChange: props.handleChange }),
+        React.createElement('input', { type: 'radio', id: 'customRadio2', name: 'custom_frequency', className: 'custom-control-input form-control', value: props.frequency, onChange: props.handleChange }),
         React.createElement(
           'label',
           { className: 'custom-control-label', htmlFor: 'customRadio2' },
@@ -274,12 +261,17 @@ function Step2(props) {
       React.createElement(
         'div',
         { className: 'custom-control custom-radio' },
-        React.createElement('input', { type: 'radio', id: 'customRadio2', name: 'frequency', className: 'custom-control-input form-control', value: props.frequency, onChange: props.handleChange }),
+        React.createElement('input', { type: 'radio', id: 'customRadio2', name: 'custom_frequency', className: 'custom-control-input form-control', value: props.frequency, onChange: props.handleChange }),
         React.createElement(
           'label',
           { className: 'custom-control-label', htmlFor: 'customRadio2' },
           'Monthly'
         )
+      ),
+      React.createElement(
+        'div',
+        { className: 'hidden' },
+        React.createElement('input', { type: 'hidden', name: 'productCode', value: 'fac6010d-c261-4705-a722-773b83dbd3f2' })
       )
     )
   );
