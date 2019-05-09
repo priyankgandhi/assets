@@ -119,6 +119,43 @@ function Step1(props) {
     return null
   }
   return(
+
+    <div className="row align-items-center">
+        <div className="col-12 col-md-6 order-md-2">
+          <div className="img-skewed img-skewed-left mb-8 mb-md-0">
+            <img src="https://landkit.goodthemes.co/assets/img/illustrations/illustration-4.png" alt="..." class="shadow-light img-fluid mw-md-90 aos-init aos-animate" data-aos="img-skewed-item-left" data-aos-delay="100">
+          </div>
+        </div>
+        <div className="col-12 col-md-6 order-md-1 aos-init aos-animate" data-aos="fade-up">
+        <h1 className="display-4">
+                  Smart Yard Maintenance <br>
+                  <span className="text-success">never done before</span>.
+                </h1>
+
+                <!-- Text -->
+                <p className="lead text-muted mb-6 mb-md-8">
+                  An affordable, quality yard maintenance service that you can manage online.
+                </p>
+
+    			<div className="input-group mb-3">
+                      <input type="text" className="form-control mr-1" placeholder="Enter your zipcode">
+                      <div className="input-group-append">
+                        <a href="https://landkit.goodthemes.co/desktop-app.html#!" class="btn btn-success-soft lift">
+    		             Get Started
+    		           </a>
+                      </div>
+                    </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
     <div className="row align-items-center text-center text-md-left">
        <div className="">
          <h1>Smart Yard Maintenance</h1>
